@@ -36,4 +36,16 @@ A full-stack web application built with Java Spring Boot to manage personal movi
    ```bash
    git clone [https://github.com/siddhanth-dev/MovieLibrary.git](https://github.com/siddhanth-dev/MovieLibrary.git)
 
+2. **Configure Database Update** src/main/resources/application.properties with your MySQL credentials.
 
+3. **Run the App**
+    ~Bash
+    mvn spring-boot:run
+
+4. **Access the App Open** http://localhost:8080 in your browser.
+
+5. 🔑 **Default Admin Credentials**
+The system automatically creates a Super Admin on first launch if one does not exist.
+
+Username: admin
+Password: admin123 
