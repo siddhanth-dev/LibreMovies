@@ -1,11 +1,18 @@
 package com.mvlb.libremovie.repository;
 
+import com.mvlb.libremovie.entity.Movie;
+import com.mvlb.libremovie.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.mvlb.libremovie.entity.Movie;
+public interface MovieRepository extends JpaRepository<Movie, Long> {
 
-public interface MovieRepository extends JpaRepository<Movie, Integer> {
+    // 1. Find ALL movies owned by a specific user (Paginated)
+    Page<Movie> findByUser(User user, Pageable pageable);
 
-	List<Movie> findByTitleContainingIgnoreCase(String keyword);
+    // 2. Search for movies owned by a specific user (Search Bar)
+    List<Movie> findByUserAndTitleContainingIgnoreCase(User user, String title);
+    
 }

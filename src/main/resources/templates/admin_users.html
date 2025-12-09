@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="login-body">
+    <div class="container">
+        <h1>User Management</h1>
+        
+        <a th:href="@{/movies}" class="btn" style="margin-bottom: 20px;">&larr; Back to My Movies</a>
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Role</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.role}"></td>
+            </tr><tr th:each="user : ${users}">
+    <td th:text="${user.id}"></td>
+    <td th:text="${user.username}"></td>
+    <td th:text="${user.role}"></td>
+    <td>
+        <a th:href="@{'/admin/users/' + ${user.id} + '/movies'}" class="btn" style="background: #6a11cb; color: white;">View Library</a>
+        
+        <a th:if="${user.username != 'admin'}" 
+           th:href="@{'/admin/users/delete/' + ${user.id}}" 
+           onclick="return confirm('WARNING: This will delete the user AND all their movies. Proceed?')"
+           class="btn" style="background: #dc2626; color: white;">Delete User</a>
+    </td>
+</tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

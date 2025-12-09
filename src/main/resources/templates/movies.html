@@ -11,12 +11,15 @@
 
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
         <span>Welcome, <b sec:authentication="name">User</b></span>
-        <a th:href="@{/logout}" class="btn" style="background: #ff4b2b; color: white; border: none;">Logout</a>
+        <div style="display: flex; gap: 10px;">
+        <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/users}" class="btn" style="background: rgb(174, 0, 0); color: white;">Manage Users</a>
+        <a th:href="@{/logout}" class="btn" style="background: rgb(128, 0, 0); color: white; border: none;">Logout</a>
+    </div>
     </div>
 
     <h1>Movie Library</h1>
 
-    <div sec:authorize="hasRole('ADMIN')">
+    <div>
         <a class="btn1" th:href="@{/movies/add}">Add New Movie</a>
     </div>
 <form th:action="@{/movies}" method="get" style="margin-bottom: 20px; display: flex; gap: 10px;">
@@ -38,7 +41,7 @@
             <th>Genre</th>
             <th>Director</th>
             <th>Year</th>
-            <th sec:authorize="hasRole('ADMIN')">Actions</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -51,7 +54,7 @@
             <td th:text="${movie.director}"></td>
             <td th:text="${movie.year}"></td>
             
-            <td sec:authorize="hasRole('ADMIN')">
+            <td>
                 <a class="btn"
                    th:href="@{'/movies/edit/' + ${movie.id}}">Edit</a>
 

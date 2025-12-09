@@ -1,5 +1,7 @@
 package com.mvlb.libremovie.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -14,11 +16,21 @@ public class User {
     private String username;
 
     @Column(nullable = false)
+    private String fullName;
+    
+    @Column(unique = true, nullable = false)
+    private String email;
+    
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
     private String role;
+   
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Movie> movies;
+    
     // Getters & setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -31,4 +43,10 @@ public class User {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+    
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 }

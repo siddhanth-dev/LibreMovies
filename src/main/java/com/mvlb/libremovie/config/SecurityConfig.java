@@ -52,17 +52,9 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable()) // Keep disabled for simple projects
             .authorizeHttpRequests(auth -> auth
-                // 1. Static Resources & Public Pages
                 .requestMatchers("/", "/login", "/signup", "/css/**", "/js/**").permitAll()
-
-                // 2. ADMIN ONLY: Add, Save, Edit, Update, Delete
-                // I added "/movies/edit/**" and "/movies/update" to be safe
-                .requestMatchers("/movies/add", "/movies/save", "/movies/edit/**", "/movies/update", "/movies/delete/**").hasRole("ADMIN")
-
-                // 3. EVERYONE (User & Admin): Can view the list
-                .requestMatchers("/movies", "/movies/**").hasAnyRole("USER", "ADMIN")
-
-                // 4. Catch-all
+                .requestMatchers("/movies/**").authenticated()
+                .requestMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form

@@ -1,39 +1,59 @@
 package com.mvlb.libremovie.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;                // ✔ Correct import
-import org.springframework.data.domain.Pageable;         // ✔ Correct import
-import org.springframework.data.domain.PageRequest;      // ✔ Correct import
-import org.springframework.stereotype.Service;
-
 import com.mvlb.libremovie.entity.Movie;
+import com.mvlb.libremovie.entity.User;
 import com.mvlb.libremovie.repository.MovieRepository;
+import com.mvlb.libremovie.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
 
     @Autowired
-    private MovieRepository repo;
+    private MovieRepository movieRepository;
+    
+    @Autowired
+    private UserRepository userRepository;
 
-    public List<Movie> searchMovies(String keyword) {
-        return repo.findByTitleContainingIgnoreCase(keyword);}
-    // Pagination method
-    public Page<Movie> getPaginatedMovies(int page, int size) {
-        Pageable pageable = PageRequest.of(page - 1, size);   
-        return repo.findAll(pageable);                        
+    // 1. Get Movies (Only for the logged-in user)
+    public Page<Movie> getPaginatedMovies(int page, int size, String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found: " + username));
+        
+        // Page - 1 because database pages start at 0, but your URL starts at 1
+        return movieRepository.findByUser(user, PageRequest.of(page - 1, size));
     }
 
-    public Movie saveMovie(Movie movie) {
-        return repo.save(movie);
+    // 2. Search Movies (Only for the logged-in user)
+    public List<Movie> searchMovies(String keyword, String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found: " + username));
+        
+        return movieRepository.findByUserAndTitleContainingIgnoreCase(user, keyword);
     }
 
-    public Movie getMovieById(Integer id) {
-        return repo.findById(id).orElse(null);
+    // 3. Save Movie (Attach the user before saving)
+    public void save(Movie movie, String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found: " + username));
+        
+        movie.setUser(user); // 🔗 This links the movie to the specific user
+        movieRepository.save(movie);
+    }
+    
+    // 4. Get Single Movie
+    public Movie getMovieById(Long id) {
+        Optional<Movie> optional = movieRepository.findById(id);
+        return optional.orElse(null);
     }
 
-    public void deleteMovie(Integer id) {
-        repo.deleteById(id);     
+    // 5. Delete Movie
+    public void delete(Long id) {
+        movieRepository.deleteById(id);
     }
 }

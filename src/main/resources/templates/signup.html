@@ -15,6 +15,16 @@
         <form th:action="@{/signup}" th:object="${user}" method="post">
             
             <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" th:field="*{fullName}" placeholder="e.g. John Doe" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" th:field="*{email}" placeholder="name@example.com" required />
+            </div>
+
+            <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" th:field="*{username}" placeholder="Choose a username" required />
             </div>
@@ -24,15 +34,6 @@
                 <input type="password" id="password" th:field="*{password}" placeholder="Create a password" required />
             </div>
 
-            <div class="form-group">
-                <label for="role">Role</label>
-                <select id="role" th:field="*{role}" required>
-                    <option value="" disabled selected>Select a role...</option>
-                    <option value="USER">User</option>
-                    <option value="ADMIN">Admin</option>
-                </select>
-            </div>
-			<br/>
             <button type="submit" class="btn-login">Sign Up</button>
 
             <div class="signup-link">
