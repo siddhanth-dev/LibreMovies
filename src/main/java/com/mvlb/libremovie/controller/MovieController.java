@@ -78,11 +78,10 @@ public class MovieController {
         return "editmovie";
     }
 
-    // Update Movie (Now attaches the user!)
     @PostMapping("/update/{id}")
     public String updateMovie(@PathVariable Long id, @ModelAttribute Movie movie, Principal principal) {
         movie.setId(id);
-        service.save(movie, principal.getName()); // Pass username to Service
+        service.save(movie, principal.getName());
         return "redirect:/movies";
     }
 

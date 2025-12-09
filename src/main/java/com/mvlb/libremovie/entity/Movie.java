@@ -8,23 +8,16 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Switched to Long (Standard practice)
+    private Long id; 
 
     private String title;
     private String genre;
     private String director;
     private Integer year;
 
-    // ---------------------------------------------
-    // 🔗 NEW: Relationship to User
-    // ---------------------------------------------
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id") // This creates the foreign key column in the database
+    @JoinColumn(name = "user_id") 
     private User user;
-
-    // ---------------------------------------------
-    // GETTERS AND SETTERS
-    // ---------------------------------------------
 
     public Long getId() {
         return id;
@@ -61,7 +54,6 @@ public class Movie {
         this.year = year;
     }
 
-    // New Getters/Setters for User
     public User getUser() {
         return user;
     }

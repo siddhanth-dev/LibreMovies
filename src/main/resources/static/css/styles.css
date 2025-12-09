@@ -332,32 +332,25 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: white !important;
     transition: background-color 5000s ease-in-out 0s;}
     
-    /* =========================================
-   HORIZONTAL FORM LAYOUT (Label - Input)
-   ========================================= */
-
-/* 1. Turn the group into a flex row */
 .login-container .form-group {
-    display: flex;           /* Sits items side-by-side */
-    align-items: center;     /* Vertically centers them */
+    display: flex;           
+    align-items: center;    
     justify-content: space-between; 
-    gap: 15px;               /* Space between label and input box */
+    gap: 15px;               
     margin-bottom: 20px;
 }
 
-/* 2. Fix the Label width */
 .login-container .form-group label {
-    flex: 0 0 90px;          /* Fixed width (90px) so all inputs align perfectly */
-    text-align: right;       /* Aligns text to the right (near the input) */
-    margin-bottom: 0;        /* Remove the old bottom margin */
-    white-space: nowrap;     /* Prevents label from wrapping */
+    flex: 0 0 90px;          
+    text-align: right;      
+    margin-bottom: 0;     
+    white-space: nowrap;    
 }
 
-/* 3. Make Input fill the rest of the line */
 .login-container input[type="text"],
 .login-container input[type="number"],
 .login-container input[type="password"],
 .login-container select {
-    width: auto;             /* Reset the old 100% width */
-    flex-grow: 1;            /* Expand to fill remaining space */
+    width: auto;            
+    flex-grow: 1;           
 }

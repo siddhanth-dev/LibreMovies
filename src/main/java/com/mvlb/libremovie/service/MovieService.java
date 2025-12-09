@@ -42,17 +42,15 @@ public class MovieService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found: " + username));
         
-        movie.setUser(user); // 🔗 This links the movie to the specific user
+        movie.setUser(user); 
         movieRepository.save(movie);
     }
     
-    // 4. Get Single Movie
     public Movie getMovieById(Long id) {
         Optional<Movie> optional = movieRepository.findById(id);
         return optional.orElse(null);
     }
 
-    // 5. Delete Movie
     public void delete(Long id) {
         movieRepository.deleteById(id);
     }

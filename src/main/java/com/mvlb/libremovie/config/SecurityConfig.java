@@ -19,25 +19,22 @@ public class SecurityConfig {
         this.userRepository = userRepository;
     }
 
-    // 1️⃣ UserDetailsService bean
     @Bean
     UserDetailsService userDetailsService() {
         return username -> userRepository.findByUsername(username)
                 .map(user -> org.springframework.security.core.userdetails.User.builder()
                         .username(user.getUsername())
                         .password(user.getPassword())
-                        .authorities("ROLE_" + user.getRole()) // Adds ROLE_ prefix (e.g., ROLE_ADMIN)
+                        .authorities("ROLE_" + user.getRole()) 
                         .build())
                 .orElseThrow(() -> new RuntimeException("User not found: " + username));
     }
 
-    // 2️⃣ PasswordEncoder bean
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // 3️⃣ AuthenticationProvider bean
     @Bean
     DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
@@ -46,11 +43,10 @@ public class SecurityConfig {
         return provider;
     }
 
-    // 4️⃣ Security filter chain
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // Keep disabled for simple projects
+            .csrf(csrf -> csrf.disable()) 
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/login", "/signup", "/css/**", "/js/**").permitAll()
                 .requestMatchers("/movies/**").authenticated()

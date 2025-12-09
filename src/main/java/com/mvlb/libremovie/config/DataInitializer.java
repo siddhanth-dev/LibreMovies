@@ -13,14 +13,13 @@ public class DataInitializer {
     @Bean
     public CommandLineRunner createAdminUser(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         return args -> {
-            // Check if admin exists. If not, create one.
             if (userRepository.findByUsername("admin").isEmpty()) {
                 User admin = new User();
                 admin.setUsername("admin");
-                admin.setPassword(passwordEncoder.encode("admin123")); // Set your master password
+                admin.setPassword(passwordEncoder.encode("admin123")); 
                 admin.setRole("ADMIN");
                 userRepository.save(admin);
-                System.out.println("✅ SUPER ADMIN CREATED: Username: 'admin', Password: 'admin123'");
+                System.out.println(" SUPER ADMIN CREATED: Username: 'admin', Password: 'admin123'");
             }
         };
     }

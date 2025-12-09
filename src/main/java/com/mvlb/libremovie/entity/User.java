@@ -31,7 +31,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Movie> movies;
     
-    // Getters & setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

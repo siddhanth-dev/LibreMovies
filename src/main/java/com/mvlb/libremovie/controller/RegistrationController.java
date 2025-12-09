@@ -27,22 +27,16 @@ public class RegistrationController {
     @PostMapping("/signup")
     public String signupSubmit(@ModelAttribute User user) {
 
-        // 🔹 If username already exists → redirect to login
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             return "redirect:/login?error=already_registered";
         }
 
-        // 🔹 Encode password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        // 🔹 FIX: Only set default role if the form didn't send one
-        // If the user selected "ADMIN" in the HTML, user.getRole() will be "ADMIN".
-        // This check prevents "Null" roles but allows your selection to pass through.
         if (user.getRole() == null || user.getRole().isEmpty()) {
             user.setRole("USER");
         }
 
-        // 🔹 Save new user
         userRepository.save(user);
 
         return "redirect:/login?registered=true";
