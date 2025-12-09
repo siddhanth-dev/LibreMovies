@@ -17,11 +17,12 @@ A full-stack web application built with Java Spring Boot to manage a personal mo
 
 ## 📸 Screenshots
 
-### Movie Dashboard (Admin View)
-<img src="https://github.com/user-attachments/assets/1876590a-d81e-40ca-a85c-bcef11c88959" width="100%" alt="Login Page">
+### Movie Dashboard page 1
+<img width="100%" alt="Dasboard-pg-1" src="https://github.com/user-attachments/assets/a2901d52-e7e8-4d14-a16f-f84b440f3337" />
 
-### Movie Dashboard page 2
-<img src="https://github.com/user-attachments/assets/e1766d8e-32c4-43db-b7d3-babb1610fcc8" width="100%" alt="Dashboard">
+### Movie Dashboard page 2 (Admin View)
+<img width="100%" alt="admin-view" src="https://github.com/user-attachments/assets/d3dbd5da-6194-426b-af9d-6f5fbcaa2144" />
 
-### Add New Movie
-<img src="https://github.com/user-attachments/assets/fae55482-7538-41fb-a05f-f62d8c1fc4aa" width="100%" alt="Add Movie">
+### Sign Up Page
+<img width="100%" alt="Signup-pg" src="https://github.com/user-attachments/assets/8b2d4d2e-1445-48f8-b0db-a75d89a50825" />
+
