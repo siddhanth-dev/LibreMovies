@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup - Movie Library</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Library Signup</h1>
+        <form th:action="@{/signup}" th:object="${user}" method="post">
+            <label>Username:</label>
+            <input type="text" th:field="*{username}" placeholder="Enter username" required />
+
+            <label>Password:</label>
+            <input type="password" th:field="*{password}" placeholder="Enter password" required />
+
+            <label>Role:</label>
+            <select th:field="*{role}" required>
+                <option value="" disabled selected>Select role</option>
+                <option value="USER">USER</option>
+                <option value="ADMIN">ADMIN</option>
+            </select>
+
+            <br/><br/>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\service\CustomUserDetailsService.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\LibreMovieApplication.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\config\SecurityConfig.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\repository\UserRepository.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\entity\User.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\entity\Movie.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\service\MovieService.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\repository\MovieRepository.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\controller\MovieController.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\controller\RegistrationController.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\controller\LoginController.java
+C:\Users\Sid\eclipse-workspace\LibreMovies\src\main\java\com\mvlb\libremovie\controller\HomeController.java
