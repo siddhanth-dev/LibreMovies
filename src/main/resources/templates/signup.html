@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup - Movie Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <h1>Create Account</h1>
+        <p class="subtitle">Join to start tracking your movies</p>
+
+        <form th:action="@{/signup}" th:object="${user}" method="post">
+            
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" th:field="*{username}" placeholder="Choose a username" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" th:field="*{password}" placeholder="Create a password" required />
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role" th:field="*{role}" required>
+                    <option value="" disabled selected>Select a role...</option>
+                    <option value="USER">User</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-login">Sign Up</button>
+
+            <div class="signup-link">
+                Already have an account? <a th:href="@{/login}">Login here</a>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+/* General Body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Primary Button (Add New) */
+.btn1 {
+    display: inline-block;
+    padding: 10px 18px;
+    margin: 5px 0 20px 0; /* Added bottom margin */
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background: #ffffffcc; 
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* Headings */
+.container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2.2rem;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table th {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+table tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+table tr:hover {
+    background-color: #ffe4b5;
+}
+
+/* Action Buttons (Edit/Delete) */
+.btn {
+    display: inline-block; /* Ensure they sit side by side */
+    color: #090909;
+    padding: 0.5em 1em; /* Slightly smaller for table */
+    font-size: 14px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    table th, table td {
+        padding: 8px;
+    }
+    .container {
+        padding: 20px;
+    }
+}
+
+/* =========================================
+   PAGINATION STYLES (New - Replaces Bootstrap)
+   ========================================= */
+.pagination-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+}
+
+.page-link {
+    display: block;
+    padding: 8px 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #2575fc;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.page-link:hover {
+    background: #2575fc;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Active Page */
+.page-item.active .page-link {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 10px rgba(37, 117, 252, 0.4);
+}
+
+/* Disabled Page (First/Last/Prev/Next) */
+.page-item.disabled .page-link {
+    background: #f1f1f1;
+    color: #aaa;
+    pointer-events: none; /* Make unclickable */
+    box-shadow: none;
+}
+/* =========================================
+   LOGIN PAGE SPECIFIC STYLES
+   ========================================= */
+
+/* Make the login body a flex container to center the card perfectly.
+   Using a deeper, more modern gradient.
+*/
+.login-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+/* The compact login card */
+.login-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Softer, deeper shadow */
+    width: 100%;
+    max-width: 400px; /* Keeps it sleek and compact */
+    text-align: center;
+}
+
+.login-container h1 {
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    color: #333;
+}
+
+.subtitle {
+    margin: 0 0 30px 0;
+    color: #777;
+    font-size: 0.95rem;
+}
+
+/* Form groups for spacing */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.login-container input[type="text"],
+.login-container input[type="number"],
+.login-container input[type="password"],
+.login-container select {    /* <--- ADDED THIS LINE */
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    background-color: white; 
+}
+
+.login-container input:focus,
+.login-container select:focus { /* <--- ADDED SELECT FOCUS HERE TOO */
+    border-color: #764ba2;
+    box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
+    outline: none;
+}
+
+
+.login-container input:focus {
+    border-color: #764ba2; /* Matches gradient */
+    box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2); /* Subtle glow */
+    outline: none;
+}
+
+/* Full width, modern gradient login button */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* Alerts (Error/Success) */
+.alert {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+}
+
+.alert-success {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #4ade80;
+}
+
+/* Signup Link area */
+.signup-link {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.signup-link a {
+    color: #764ba2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
