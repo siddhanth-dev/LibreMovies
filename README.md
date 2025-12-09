@@ -22,13 +22,13 @@ A full-stack web application built with Java Spring Boot to manage personal movi
 ## 📸 Screenshots
 
 ### Movie Dashboard page 1
-<img width="100%" alt="Dasboard-pg-1" src="https://github.com/user-attachments/assets/a2901d52-e7e8-4d14-a16f-f84b440f3337" />
+<img width="100%" alt="user dashboard" src="https://github.com/user-attachments/assets/fc29a3b3-d578-4544-96f5-dedbe099f440" />
 
 ### Movie Dashboard page 2 (Admin View)
-<img width="100%" alt="admin-view" src="https://github.com/user-attachments/assets/d3dbd5da-6194-426b-af9d-6f5fbcaa2144" />
+<img width="100%" alt="admin dasboard" src="https://github.com/user-attachments/assets/7e8172ac-ced2-458c-96f8-ba9f4ab086e0" />
 
 ### Sign Up Page
-<img width="100%" alt="Signup-pg" src="https://github.com/user-attachments/assets/8b2d4d2e-1445-48f8-b0db-a75d89a50825" />
+<img width="100%" alt="Sign up pg" src="https://github.com/user-attachments/assets/9e078fe9-665f-4c35-aedd-04ffdc8c4fae" />
 
 ## ⚙️ How to Run Locally
 
