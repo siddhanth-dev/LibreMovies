@@ -1,5 +1,7 @@
 package com.mvlb.libremovie.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;                // ✔ Correct import
 import org.springframework.data.domain.Pageable;         // ✔ Correct import
@@ -15,6 +17,8 @@ public class MovieService {
     @Autowired
     private MovieRepository repo;
 
+    public List<Movie> searchMovies(String keyword) {
+        return repo.findByTitleContainingIgnoreCase(keyword);}
     // Pagination method
     public Page<Movie> getPaginatedMovies(int page, int size) {
         Pageable pageable = PageRequest.of(page - 1, size);   

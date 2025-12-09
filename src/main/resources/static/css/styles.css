@@ -1,39 +1,47 @@
-/* General Body */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #74ebd5, #acb6e5);
+    font-family: 'Poppins', sans-serif; 
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #e0e0e0; 
+    min-height: 100vh;
+    position: relative;
+    background-color: #121212; 
+    overflow-x: hidden;
 }
 
-/* Primary Button (Add New) */
-.btn1 {
-    display: inline-block;
-    padding: 10px 18px;
-    margin: 5px 0 20px 0; /* Added bottom margin */
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+        url('https://wallpaperaccess.com/full/3658604.jpg') no-repeat center center;
+    
+    background-size: cover;
+    filter: blur(4px); 
+    z-index: -1;
+    transform: scale(1.05); 
 }
 
-.btn1:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Container */
 .container {
     width: 90%;
     max-width: 900px;
     margin: 50px auto;
     padding: 40px;
-    background: #ffffffcc; 
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    background: rgba(20, 20, 20, 0.85); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
     transition: transform 0.3s;
 }
 
@@ -41,15 +49,62 @@ body {
     transform: translateY(-5px);
 }
 
-/* Headings */
 .container h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: #333;
-    font-size: 2.2rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-/* Tables */
+.btn1 {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 5px 0 20px 0;
+    background: linear-gradient(135deg, rgb(128, 0, 0), rgb(128, 64, 0));
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgb(255, 0, 128); 
+}
+
+.btn1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgb(147, 0, 0);
+    color: white;
+}
+
+.btn {
+    display: inline-block;
+    color: #ddd;
+    padding: 0.6em 1.2em;
+    font-size: 14px;
+    border-radius: 6px;
+    background: #333;
+    cursor: pointer;
+    border: 1px solid #444;
+    transition: all 0.3s;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.btn:hover {
+    background: #444;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+form .btn {
+    background: rgb(174, 0, 0) !important;
+    border: none;
+    color: white !important;
+}
+
 table {
     width: 100%;
     border-collapse: separate;
@@ -57,68 +112,79 @@ table {
     margin-top: 20px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background-color: #1e1e1e;
 }
 
 table th, table td {
-    padding: 12px 15px;
+    padding: 15px;
     text-align: left;
+    border-bottom: 1px solid #333;
 }
 
 table th {
-    background: linear-gradient(90deg, #ff7e5f, #feb47b);
-    color: white;
+     background: linear-gradient(90deg, rgb(128, 64, 64), rgb(128, 0, 64));
+    color: #aaa;
     text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
     font-weight: 600;
+    border-bottom: 2px solid #444;
 }
 
+table th:nth-child(3), table td:nth-child(3) { min-width: 200px; }
+table th:nth-child(7), table td:nth-child(7) { min-width: 150px; white-space: nowrap; }
+
 table tr:nth-child(even) {
-    background-color: #f7f7f7;
+    background-color: #252525;
+}
+
+table tr:nth-child(odd) {
+    background-color: #1e1e1e;
 }
 
 table tr:hover {
-    background-color: #ffe4b5;
+    background-color: #333; 
+    color: #fff;
 }
 
-/* Action Buttons (Edit/Delete) */
-.btn {
-    display: inline-block; /* Ensure they sit side by side */
-    color: #090909;
-    padding: 0.5em 1em; /* Slightly smaller for table */
-    font-size: 14px;
-    border-radius: 0.5em;
-    background: #e8e8e8;
-    cursor: pointer;
-    border: 1px solid #e8e8e8;
-    transition: all 0.3s;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-    text-decoration: none;
-    margin-right: 5px;
+.form-group label, 
+form label {
+    color: #ccc;
+    font-weight: 500;
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+.login-container input[type="text"],
+.login-container input[type="number"],
+.login-container input[type="password"],
+.login-container select,
+form input[type="text"],
+form input[type="number"],
+form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    color: white; 
+    
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-.btn:active {
+::placeholder {
     color: #666;
-    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
 }
 
-/* Responsive Table */
-@media (max-width: 768px) {
-    table th, table td {
-        padding: 8px;
-    }
-    .container {
-        padding: 20px;
-    }
+input:focus, select:focus {
+    border-color: rgb(128, 0, 0);
+    box-shadow: 0 0 0 3px rgb(255, 0, 128);
+    outline: none;
+    background-color: #333;
 }
 
-/* =========================================
-   PAGINATION STYLES (New - Replaces Bootstrap)
-   ========================================= */
 .pagination-container {
     margin-top: 30px;
     display: flex;
@@ -135,175 +201,161 @@ table tr:hover {
 .page-link {
     display: block;
     padding: 8px 16px;
-    background: #fff;
-    border: 1px solid #ddd;
-    color: #2575fc;
+    background: #2b2b2b; 
+    border: 1px solid #444;
+    color: #ccc;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+    border-radius: 6px;
+    font-weight: 500;
     transition: all 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .page-link:hover {
-    background: #2575fc;
+    background: rgb(128, 0, 0);
     color: white;
+    border-color: rgb(174, 0, 0);
     transform: translateY(-2px);
 }
 
-/* Active Page */
 .page-item.active .page-link {
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    background: linear-gradient(45deg, rgb(128, 0, 0), rgb(128, 64, 0));
     color: white;
     border-color: transparent;
-    box-shadow: 0 4px 10px rgba(37, 117, 252, 0.4);
+    box-shadow: 0 4px 15px rgb(64, 0, 0);
 }
 
-/* Disabled Page (First/Last/Prev/Next) */
 .page-item.disabled .page-link {
-    background: #f1f1f1;
-    color: #aaa;
-    pointer-events: none; /* Make unclickable */
-    box-shadow: none;
+    background: #1a1a1a;
+    color: #555;
+    border-color: #333;
+    pointer-events: none;
 }
-/* =========================================
-   LOGIN PAGE SPECIFIC STYLES
-   ========================================= */
 
-/* Make the login body a flex container to center the card perfectly.
-   Using a deeper, more modern gradient.
-*/
 .login-body {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 20px;
 }
 
-/* The compact login card */
 .login-container {
-    background: #ffffff;
+    background: rgba(20, 20, 20, 0.9); 
     padding: 40px;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Softer, deeper shadow */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     width: 100%;
-    max-width: 400px; /* Keeps it sleek and compact */
+    max-width: 400px;
     text-align: center;
+    backdrop-filter: blur(15px);
 }
 
 .login-container h1 {
-    margin: 0 0 10px 0;
-    font-weight: 700;
-    color: #333;
+    color: white;
+    margin-bottom: 10px;
 }
 
 .subtitle {
     margin: 0 0 30px 0;
-    color: #777;
-    font-size: 0.95rem;
-}
-
-/* Form groups for spacing */
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #555;
+    color: #888;
     font-size: 0.9rem;
 }
 
-.login-container input[type="text"],
-.login-container input[type="number"],
-.login-container input[type="password"],
-.login-container select {    /* <--- ADDED THIS LINE */
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #e1e1e1;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-    background-color: white; 
-}
-
-.login-container input:focus,
-.login-container select:focus { /* <--- ADDED SELECT FOCUS HERE TOO */
-    border-color: #764ba2;
-    box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2);
-    outline: none;
-}
-
-
-.login-container input:focus {
-    border-color: #764ba2; /* Matches gradient */
-    box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.2); /* Subtle glow */
-    outline: none;
-}
-
-/* Full width, modern gradient login button */
 .btn-login {
     width: 100%;
     padding: 12px;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    background: linear-gradient(to right, rgb(128, 0, 0), rgb(255, 0, 128));
     color: white;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
 }
 
 .btn-login:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+    box-shadow: 0 5px 20px rgb(128, 0, 0);
 }
 
-.btn-login:active {
-    transform: translateY(0);
-}
-
-/* Alerts (Error/Success) */
-.alert {
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.alert-error {
-    background-color: #fee2e2;
-    color: #991b1b;
-    border: 1px solid #f87171;
-}
-
-.alert-success {
-    background-color: #dcfce7;
-    color: #166534;
-    border: 1px solid #4ade80;
-}
-
-/* Signup Link area */
 .signup-link {
     margin-top: 25px;
     font-size: 0.9rem;
-    color: #666;
+    color: #888;
 }
 
 .signup-link a {
-    color: #764ba2;
+    color: #acb6e5;
     text-decoration: none;
     font-weight: bold;
 }
 
 .signup-link a:hover {
+    color: white;
     text-decoration: underline;
+}
+
+.alert {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.alert-error {
+    background-color: rgba(220, 38, 38, 0.2);
+    color: #ff8888;
+    border: 1px solid #dc2626;
+}
+
+.alert-success {
+    background-color: rgba(22, 163, 74, 0.2);
+    color: #86efac;
+    border: 1px solid #16a34a;
+}
+
+@media (max-width: 768px) {
+    table th, table td { padding: 10px; }
+    .container { padding: 20px; width: 95%; }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #2b2b2b inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;}
+    
+    /* =========================================
+   HORIZONTAL FORM LAYOUT (Label - Input)
+   ========================================= */
+
+/* 1. Turn the group into a flex row */
+.login-container .form-group {
+    display: flex;           /* Sits items side-by-side */
+    align-items: center;     /* Vertically centers them */
+    justify-content: space-between; 
+    gap: 15px;               /* Space between label and input box */
+    margin-bottom: 20px;
+}
+
+/* 2. Fix the Label width */
+.login-container .form-group label {
+    flex: 0 0 90px;          /* Fixed width (90px) so all inputs align perfectly */
+    text-align: right;       /* Aligns text to the right (near the input) */
+    margin-bottom: 0;        /* Remove the old bottom margin */
+    white-space: nowrap;     /* Prevents label from wrapping */
+}
+
+/* 3. Make Input fill the rest of the line */
+.login-container input[type="text"],
+.login-container input[type="number"],
+.login-container input[type="password"],
+.login-container select {
+    width: auto;             /* Reset the old 100% width */
+    flex-grow: 1;            /* Expand to fill remaining space */
 }

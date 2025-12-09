@@ -19,10 +19,20 @@
     <div sec:authorize="hasRole('ADMIN')">
         <a class="btn1" th:href="@{/movies/add}">Add New Movie</a>
     </div>
-
+<form th:action="@{/movies}" method="get" style="margin-bottom: 20px; display: flex; gap: 10px;">
+    <input type="text" name="keyword" th:value="${keyword}" 
+           placeholder="Search by title..." 
+           style="padding: 10px; width: 100%; border: 1px solid #ccc; border-radius: 5px;">
+    
+    <button type="submit" class="btn" style="background: #6a11cb; color: white; border: none;">Search</button>
+    
+    <a th:href="@{/movies}" class="btn" style="background: #999; color: white; text-decoration: none;">Clear</a>
+</form>
     <table>
         <thead>
         <tr>
+        
+            <th>Sl No.</th>
             <th>ID</th>
             <th>Title</th>
             <th>Genre</th>
@@ -33,7 +43,9 @@
         </thead>
         <tbody>
         <tr th:each="movie,stat : ${movies}">
+        		
            <td th:text="${(currentPage - 1) * pageSize + stat.count}"></td>
+           <td th:text="${movie.id}"></td>
             <td th:text="${movie.title}"></td>
             <td th:text="${movie.genre}"></td>
             <td th:text="${movie.director}"></td>

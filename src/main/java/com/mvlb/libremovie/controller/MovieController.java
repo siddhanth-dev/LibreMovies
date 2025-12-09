@@ -3,6 +3,9 @@ package com.mvlb.libremovie.controller;
 
 import com.mvlb.libremovie.entity.Movie;
 import com.mvlb.libremovie.service.MovieService;
+
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,14 +23,36 @@ public class MovieController {
 
     // List movies with pagination
     @GetMapping("")
-    public String listMovies(Model model, @RequestParam(defaultValue = "1") int page) {
-        int pageSize = 5; // movies per page
-        Page<Movie> moviePage = service.getPaginatedMovies(page, pageSize);
-        model.addAttribute("pageSize", pageSize);
-        model.addAttribute("movies", moviePage.getContent());
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", moviePage.getTotalPages());
-        model.addAttribute("totalItems", moviePage.getTotalElements());
+    public String listMovies(Model model, 
+                             @RequestParam(defaultValue = "1") int page, 
+                             @RequestParam(required = false) String keyword) { // 1. Add keyword param
+
+        int pageSize = 5;
+        
+        // 2. CHECK: Is the user searching?
+        if (keyword != null && !keyword.isEmpty()) {
+            // --- SEARCH MODE ---
+            List<Movie> searchResults = service.searchMovies(keyword);
+            
+            model.addAttribute("movies", searchResults);
+            model.addAttribute("keyword", keyword); // Send back to keep input filled
+            
+            // Fake the pagination data so the HTML doesn't crash
+            model.addAttribute("currentPage", 1);
+            model.addAttribute("totalPages", 1);
+            model.addAttribute("totalItems", searchResults.size());
+            model.addAttribute("pageSize", searchResults.size()); 
+        } 
+        else {
+            // --- NORMAL PAGINATION MODE (Your original code) ---
+            Page<Movie> moviePage = service.getPaginatedMovies(page, pageSize);
+            
+            model.addAttribute("movies", moviePage.getContent());
+            model.addAttribute("currentPage", page);
+            model.addAttribute("totalPages", moviePage.getTotalPages());
+            model.addAttribute("totalItems", moviePage.getTotalElements());
+            model.addAttribute("pageSize", pageSize);
+        }
 
         return "movies";
     }
@@ -52,7 +77,7 @@ public class MovieController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateMovie(@PathVariable Long id, @ModelAttribute Movie movie) {
+    public String updateMovie(@PathVariable Integer id, @ModelAttribute Movie movie) {
         movie.setId(id);
         service.saveMovie(movie);
         return "redirect:/movies";

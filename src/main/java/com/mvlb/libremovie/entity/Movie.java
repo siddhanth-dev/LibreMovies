@@ -10,7 +10,7 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String title;
     private String genre;
@@ -18,11 +18,11 @@ public class Movie {
     private Integer year;
 
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Integer id2) {
+        this.id = id2;
     }
 
     public String getTitle() {
