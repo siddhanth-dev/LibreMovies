@@ -18,6 +18,8 @@ public class DataInitializer {
                 admin.setUsername("admin");
                 admin.setPassword(passwordEncoder.encode("admin123")); 
                 admin.setRole("ADMIN");
+                admin.setFullName("Admin User"); 
+                admin.setEmail("admin@example.com");
                 userRepository.save(admin);
                 System.out.println(" SUPER ADMIN CREATED: Username: 'admin', Password: 'admin123'");
             }

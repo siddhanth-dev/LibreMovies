@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Managing Library</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="login-body">
+<div class="container">
+    <h1 th:text="'Library of: ' + ${owner}"></h1>
+    <a th:href="@{/admin/users}" class="btn" style="margin-bottom: 20px;">&larr; Back to Users</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Admin Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="movie : ${movies}">
+            <td th:text="${movie.title}"></td>
+            <td th:text="${movie.genre}"></td>
+            <td th:text="${movie.director}"></td>
+            <td th:text="${movie.year}"></td>
+            <td>
+                <a th:href="@{'/admin/movies/delete/' + ${movie.id}}"
+                   onclick="return confirm('Delete this movie from user\'s library?')"
+                   class="btn" style="background: #dc2626; color: white;">Delete</a>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(movies)}">
+            <td colspan="5" style="text-align:center;">This user has no movies.</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+com/mvlb/libremovie/service/MovieService.class
+com/mvlb/libremovie/entity/User.class
+com/mvlb/libremovie/repository/MovieRepository.class
+com/mvlb/libremovie/config/DataInitializer.class
+com/mvlb/libremovie/controller/HomeController.class
+com/mvlb/libremovie/config/SecurityConfig.class
+com/mvlb/libremovie/repository/UserRepository.class
+com/mvlb/libremovie/controller/RegistrationController.class
+com/mvlb/libremovie/service/CustomUserDetailsService.class
+com/mvlb/libremovie/controller/AdminController.class
+com/mvlb/libremovie/entity/Movie.class
+com/mvlb/libremovie/controller/LoginController.class
+com/mvlb/libremovie/controller/MovieController.class
+com/mvlb/libremovie/LibreMovieApplication.class
