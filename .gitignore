@@ -1,0 +1,17 @@
+# Ignore target folder (compiled files)
+target/
+
+# Ignore IDE files (e.g., IntelliJ, VS Code)
+.idea/
+.vscode/
+
+# Ignore system files (Mac/Linux/Windows specific)
+.DS_Store
+Thumbs.db
+
+# Ignore JAR files
+*.jar
+*.war
+
+# Ignore Maven wrapper files
+.mvn/
